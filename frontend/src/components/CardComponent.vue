@@ -26,7 +26,9 @@ export default {
       try {
         const response = await axios.get(`http://localhost:8000/draw/${this.numCards}`)
         this.hand = response.data.hand
+        console.log(response.data)
         this.rank = response.data.rank
+        console.log(response.data)
       } catch (error) {
         this.error = error.response.data.error
       }
