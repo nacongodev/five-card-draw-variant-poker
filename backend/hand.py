@@ -7,5 +7,9 @@ class Hand:
     def add_card(self, card):
         self.cards.append(card)
 
-    def __len__(self):
+        def __len__(self):
         return self.cards
+
+    def __iter__(self):
+        return iter(self.cards)
+    
