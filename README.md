@@ -8,8 +8,8 @@ This is poker game with Backend API and frontend using VUE js
 
 `sh scripts.sh`
 
-+run the scripts twice on different command window 
-+the sever side option will also run all the test
++ run the scripts twice on different command window 
++ the sever side option will also run all the test
 
 
 # ENPOINTS: 
