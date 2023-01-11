@@ -55,12 +55,15 @@ def draw_cards(n: int = 1):
         if deck.size() < n:
             raise HTTPException(status_code=404, detail=f"Not enough cards in the deck (only {deck.size()} remaining)")
         hand = deck.draw(n)
-        return {"Your Hand": hand.cards, "Your Rank": hand.rank}
+        if deck.size() == 0:
+            raise HTTPException(status_code=404, detail="Deck is empty")
+        deck.shuffle()
+        return {"Shuffling status": "Shuffling done ", "Your Hand": hand.cards, "Your Rank": hand.rank}
     except ValueError as e:
         return {"error": str(e)}
 
 
-@app.get("/shuffle")
+@app.get("/")
 def shuffle_deck():
     """
     Shuffle the deck of cards.
@@ -69,7 +72,7 @@ def shuffle_deck():
     if deck.size() == 0:
         raise HTTPException(status_code=404, detail="Deck is empty")
     deck.shuffle()
-    return {"message": "Deck shuffled"}
+    return {"message": "Shuffling... Shuffling... Shuffling..."}
 
 
 @app.get("/size")
@@ -81,3 +84,5 @@ def get_deck_size():
     if deck is None:
         raise HTTPException(status_code=404, detail="Deck has not been initialized")
     return {"Remaining cards in the deck": deck.size()}
+
+
