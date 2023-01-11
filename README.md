@@ -3,9 +3,12 @@ This is poker game with Backend API and frontend using VUE js
 
 The Backed is written using FastApi and the Frontend Vue Js
 
-# How to run the Backend 
+# How to run
 
-- pip install -r requirements.txt
+- You can run the script by calling ./build.sh followed by the argument client, server, or test, like this:
+
+ `./build.sh client`
+
 
 # ENPOINTS: 
 
@@ -13,9 +16,7 @@ The Backed is written using FastApi and the Frontend Vue Js
 - http://127.0.0.1:8000/shuffle : Check if the Deck is shuffled
 - http://127.0.0.1:8000/size : Get the size of the deck in other to know the remaining amount of cards in the Deck
 
- # How to run the frontend
 
-- use npm install to install all packages and use npm run serve to start the frontend
 
 # Work in progress:
 
