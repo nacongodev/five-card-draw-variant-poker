@@ -1,7 +1,6 @@
 # five-card-draw-variant-poker
 This is poker game with Backend API and frontend using VUE js
 
-The Backed is written using FastApi and the Frontend Vue Js
 
 # How to run
 
@@ -13,10 +12,36 @@ The Backed is written using FastApi and the Frontend Vue Js
 # ENPOINTS: 
 
 - http://127.0.0.1:8000/draw/{n} n is the number of cards you can draw
-- http://127.0.0.1:8000/shuffle : Check if the Deck is shuffled
+```json
+{
+"Shuffling status": "Shuffling done ",
+"Hand": [
+{
+"rank": 11,
+"suit": "♦"
+},
+{
+"rank": 5,
+"suit": "♦"
+}
+],
+"Handrank": "High Cards"
+}
+```
+- http://127.0.0.1:8000/ : Entry point to start shuffling the deck
+```json
+  {
+"message": "Shuffling... Shuffling... Shuffling..."
+}
+
+```
 - http://127.0.0.1:8000/size : Get the size of the deck in other to know the remaining amount of cards in the Deck
 
-
+```json
+{
+"Remaining cards in the deck": 52
+}
+```
 
 # Work in progress:
 
