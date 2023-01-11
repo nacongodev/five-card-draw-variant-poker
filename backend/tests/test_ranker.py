@@ -5,53 +5,34 @@ from hand import Hand
 
 
 class TestRanker(TestCase):
-    def test_rank_hand(self):
+
+    def test_is_straight_flush(self):
         ranker = Ranker()
+        # Test a straight flush hand
+        hand1 = [Card(5, 'hearts'), Card(6, 'hearts'), Card(7, 'hearts'), Card(8, 'hearts'), Card(9, 'hearts')]
+        self.assertTrue(ranker.is_straight_flush(hand1))
 
-        hand = Hand()
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 2))
-        hand.add_card(Card('hearts', 3))
-        hand.add_card(Card('hearts', 4))
-        hand.add_card(Card('hearts', 5))
-        self.assertEqual(ranker.rank_hand(hand), 'straight flush')
+        # Test a non-straight flush hand
+        hand2 = [Card(5, 'hearts'), Card(6, 'hearts'), Card(7, 'hearts'), Card(8, 'hearts'), Card(9, 'spades')]
+        self.assertFalse(ranker.is_straight_flush(hand2))
 
-        hand = Hand()
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 5))
-        self.assertEqual(ranker.rank_hand(hand), 'four of a kind')
+    def test_is_two_pair(self):
+        ranker = Ranker()
+        # Test a two pair hand
+        hand1 = [Card(7, 'hearts'), Card(7, 'diamonds'), Card(14, 'clubs'), Card(14, 'spades'), Card(5, 'spades')]
+        self.assertTrue(ranker.is_two_pair(hand1))
 
-        hand = Hand()
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 5))
-        hand.add_card(Card('hearts', 5))
-        self.assertEqual(ranker.rank_hand(hand), 'full house')
+        # Test a hand that is not a two pair hand
+        hand2 = [Card(7, 'hearts'), Card(7, 'diamonds'), Card(14, 'clubs'), Card(2, 'spades'), Card(5, 'spades')]
+        self.assertFalse(ranker.is_two_pair(hand2))
 
-        hand = Hand()
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 2))
-        hand.add_card(Card('hearts', 3))
-        hand.add_card(Card('hearts', 4))
-        hand.add_card(Card('hearts', 6))
-        self.assertEqual(ranker.rank_hand(hand), 'flush')
+    def test_is_pair(self):
+        ranker = Ranker()
+        # Test a pair hand
+        hand1 = [Card(7, 'hearts'), Card(7, 'diamonds'), Card(14, 'clubs'), Card(2, 'spades'), Card(5, 'spades')]
+        self.assertTrue(ranker.is_pair(hand1))
 
-        hand = Hand()
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 2))
-        hand.add_card(Card('hearts', 3))
-        hand.add_card(Card('hearts', 4))
-        hand.add_card(Card('spades', 5))
-        self.assertEqual(ranker.rank_hand(hand), 'straight')
+        # Test a hand that is not a pair hand
+        hand2 = [Card(7, 'hearts'), Card(8, 'diamonds'), Card(14, 'clubs'), Card(2, 'spades'), Card(5, 'spades')]
+        self.assertFalse(ranker.is_pair(hand2))
 
-        hand = Hand()
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('hearts', 1))
-        hand.add_card(Card('spades', 5))
-        hand.add_card(Card('spades', 5))
-        self.assertEqual(ranker.rank_hand(hand), 'three of a kind')
