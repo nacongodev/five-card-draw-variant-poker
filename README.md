@@ -4,9 +4,12 @@ This is poker game with Backend API and frontend using VUE js
 
 # How to run
 
-- You can run the script by calling ./build.sh followed by the argument client, server, or test, like this:
+- You can run the the front and backend by calling sh scripts.sh and choose an option client or server.
 
- `./build.sh client`
+`sh scripts.sh`
+
++ run the scripts twice on different command window 
++ the sever side option will also run all the test
 
 
 # ENPOINTS: 
