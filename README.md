@@ -48,6 +48,6 @@ This is poker game with Backend API and frontend using VUE js
 
 # Work in progress:
 
-  - Vue Js (Display of the cards and the rank of the Hand)
+  - Vue Js CSS style
 
   - Note: CORS established between the Backend end Frontend
