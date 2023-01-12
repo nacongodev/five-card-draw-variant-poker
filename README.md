@@ -48,6 +48,5 @@ This is poker game with Backend API and frontend using VUE js
 
 # Work in progress:
 
-  - Vue Js CSS style
-
-  - Note: CORS established between the Backend end Frontend
+  - Vue Js: Style the app and add routing function
+  - Add a function to check the size of the card to reshuffle the deck when deck is empty
