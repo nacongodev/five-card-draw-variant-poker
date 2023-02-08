@@ -49,4 +49,4 @@ This is poker game with Backend API and frontend using VUE js
 # Work in progress:
 
   - Vue Js: Style the app and add routing function
-  - Add a function to check the size of the card to reshuffle the deck when deck is empty
+  - Add a function to check the size of the Deck to reshuffle the deck when deck is empty
